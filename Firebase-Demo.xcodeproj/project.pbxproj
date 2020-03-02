@@ -17,6 +17,8 @@
 		55C5304A240D5F6A00A49678 /* CreateItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C53049240D5F6A00A49678 /* CreateItemViewController.swift */; };
 		55C5304C240D5FA100A49678 /* UIViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C5304B240D5FA100A49678 /* UIViewController+Navigation.swift */; };
 		55C5304E240D5FC700A49678 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C5304D240D5FC700A49678 /* UIViewController+Alerts.swift */; };
+		55F23A72240D757A00245CD5 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F23A71240D757A00245CD5 /* CategoryCell.swift */; };
+		55F23A75240D776F00245CD5 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F23A74240D776F00245CD5 /* Category.swift */; };
 		57845ACD24092D4300F35651 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57845ACC24092D4300F35651 /* AppDelegate.swift */; };
 		57845ACF24092D4300F35651 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57845ACE24092D4300F35651 /* SceneDelegate.swift */; };
 		57845AD124092D4300F35651 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57845AD024092D4300F35651 /* LoginViewController.swift */; };
@@ -52,6 +54,8 @@
 		55C53049240D5F6A00A49678 /* CreateItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateItemViewController.swift; sourceTree = "<group>"; };
 		55C5304B240D5FA100A49678 /* UIViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Navigation.swift"; sourceTree = "<group>"; };
 		55C5304D240D5FC700A49678 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
+		55F23A71240D757A00245CD5 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		55F23A74240D776F00245CD5 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		57845AC924092D4300F35651 /* Firebase-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Firebase-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57845ACC24092D4300F35651 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57845ACE24092D4300F35651 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +124,14 @@
 			path = "Firebase Services";
 			sourceTree = "<group>";
 		};
+		55F23A73240D776100245CD5 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				55F23A74240D776F00245CD5 /* Category.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		57845AC024092D4300F35651 = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +155,7 @@
 		57845ACB24092D4300F35651 /* Firebase-Demo */ = {
 			isa = PBXGroup;
 			children = (
+				55F23A73240D776100245CD5 /* model */,
 				5521DA6A2409751300D8EF3A /* Firebase Services */,
 				57845AF72409337B00F35651 /* Storyboards */,
 				57845AF52409332000F35651 /* Views */,
@@ -178,6 +191,7 @@
 			children = (
 				57845AF024092DBB00F35651 /* GradientView.swift */,
 				57845AF224092DDC00F35651 /* DesignableView.swift */,
+				55F23A71240D757A00245CD5 /* CategoryCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -378,8 +392,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				55C5304C240D5FA100A49678 /* UIViewController+Navigation.swift in Sources */,
+				55F23A75240D776F00245CD5 /* Category.swift in Sources */,
 				57845AD124092D4300F35651 /* LoginViewController.swift in Sources */,
 				55C53044240D5F3000A49678 /* ItemFeedViewController.swift in Sources */,
+				55F23A72240D757A00245CD5 /* CategoryCell.swift in Sources */,
 				55C53048240D5F5300A49678 /* ProfileViewController.swift in Sources */,
 				57845ACD24092D4300F35651 /* AppDelegate.swift in Sources */,
 				57845AF124092DBB00F35651 /* GradientView.swift in Sources */,
