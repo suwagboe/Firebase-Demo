@@ -6,7 +6,10 @@
 //  Copyright © 2020 Alex Paul. All rights reserved.
 //
 
+// MARK: no longer need - nln
+
 import UIKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -18,12 +21,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     
-    let loginViewSB = UIStoryboard(name: "LoginView", bundle: nil)
-    guard let windowScene = (scene as? UIWindowScene),
-      let loginViewController = loginViewSB.instantiateViewController(identifier: "LoginViewController") as? LoginViewController else { return }
+   // let loginViewSB = UIStoryboard(name: "LoginView", bundle: nil) (NLN)
+    guard let windowScene = (scene as? UIWindowScene) else { return }
+    //  let loginViewController = loginViewSB.instantiateViewController(identifier: "LoginViewController") as? LoginViewController else { return } (NLN)
     window = UIWindow(frame: UIScreen.main.bounds)
     window?.windowScene = windowScene
-    window?.rootViewController = loginViewController
+    
+   // window?.rootViewController = loginViewController we make the function to change the controller
+    
+    if let _ = Auth.auth().currentUser {
+        // because someone is logged in it will be at the main screen..
+    // if the value is not optional then a user is currently logged in
+        UIViewController.showViewController(storyBoardName: "MainView", viewControllerID: "MainTabBarController")
+    } else {
+        // no one is logged in
+        UIViewController.showViewController(storyBoardName: "LoginView", viewControllerID: "LoginViewController")
+    }
+    
     window?.makeKeyAndVisible()
   }
 

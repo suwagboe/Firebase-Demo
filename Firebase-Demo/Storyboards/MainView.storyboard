@@ -26,18 +26,74 @@
         <!--Profile-->
         <scene sceneID="PdZ-uM-qsD">
             <objects>
-                <viewController id="phv-09-UYa" sceneMemberID="viewController">
+                <viewController id="phv-09-UYa" customClass="ProfileViewController" customModule="Firebase_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ph4-3I-fcv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fxp-oJ-BVZ" customClass="DesignableImageView" customModule="Firebase_Demo" customModuleProvider="target">
+                                <rect key="frame" x="147" y="84.5" width="120" height="119"/>
+                                <color key="backgroundColor" red="0.76470588240000004" green="0.74509803919999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="e3t-60-lwg"/>
+                                    <constraint firstAttribute="height" constant="120" id="gxQ-Ej-TQw"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="60"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="enter a display name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kuM-Lt-KTt">
+                                <rect key="frame" x="20" y="224" width="374" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="OM8-lp-dV0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Used" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxD-zl-91q">
+                                <rect key="frame" x="20" y="278" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trj-PH-wUx">
+                                <rect key="frame" x="158" y="433" width="98" height="30"/>
+                                <state key="normal" title="Update Profile">
+                                    <color key="titleColor" red="0.76470588240000004" green="0.74509803919999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="updateProfile:" destination="phv-09-UYa" eventType="touchUpInside" id="wPZ-5g-22Z"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="sxD-zl-91q" firstAttribute="leading" secondItem="S0W-bn-M14" secondAttribute="leading" constant="20" id="6n2-Jq-9xC"/>
+                            <constraint firstItem="kuM-Lt-KTt" firstAttribute="top" secondItem="fxp-oJ-BVZ" secondAttribute="bottom" constant="20" id="BIa-Dg-uXj"/>
+                            <constraint firstItem="sxD-zl-91q" firstAttribute="top" secondItem="kuM-Lt-KTt" secondAttribute="bottom" constant="20" id="BK5-bb-n1l"/>
+                            <constraint firstItem="fxp-oJ-BVZ" firstAttribute="top" secondItem="S0W-bn-M14" secondAttribute="top" constant="40" id="DWy-0I-p8y"/>
+                            <constraint firstItem="trj-PH-wUx" firstAttribute="centerY" secondItem="ph4-3I-fcv" secondAttribute="centerY" id="EP3-yu-7oV"/>
+                            <constraint firstItem="kuM-Lt-KTt" firstAttribute="leading" secondItem="S0W-bn-M14" secondAttribute="leading" constant="20" id="V8o-nG-RiE"/>
+                            <constraint firstItem="S0W-bn-M14" firstAttribute="trailing" secondItem="sxD-zl-91q" secondAttribute="trailing" constant="20" id="Xf8-NT-dIv"/>
+                            <constraint firstItem="trj-PH-wUx" firstAttribute="centerX" secondItem="ph4-3I-fcv" secondAttribute="centerX" id="cw3-ZO-6eu"/>
+                            <constraint firstItem="S0W-bn-M14" firstAttribute="trailing" secondItem="kuM-Lt-KTt" secondAttribute="trailing" constant="20" id="shs-2y-8hj"/>
+                            <constraint firstItem="fxp-oJ-BVZ" firstAttribute="centerX" secondItem="ph4-3I-fcv" secondAttribute="centerX" id="xch-xU-aUo"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="S0W-bn-M14"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="3LV-N9-Ijs"/>
+                    <connections>
+                        <outlet property="displayNameTextField" destination="kuM-Lt-KTt" id="yg2-Yz-kNB"/>
+                        <outlet property="emailLabel" destination="sxD-zl-91q" id="TjS-Qh-7RC"/>
+                        <outlet property="profilleImageView" destination="fxp-oJ-BVZ" id="zbL-N8-QMU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="whE-bJ-dJm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6" y="459"/>
+            <point key="canvasLocation" x="5.7971014492753632" y="458.70535714285711"/>
         </scene>
         <!--Item Feed-->
         <scene sceneID="Xw2-Uw-vlV">
@@ -75,4 +131,7 @@
             <point key="canvasLocation" x="-935" y="-175"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="person.circle" catalog="system" width="64" height="60"/>
+    </resources>
 </document>

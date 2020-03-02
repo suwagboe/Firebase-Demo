@@ -57,14 +57,15 @@ class LoginViewController: UIViewController {
                         self?.errorLabel.text = "\(error.localizedDescription)"
                         self?.errorLabel.textColor = .systemRed
                     }
-                case .success(let authDataResult):
+                case .success:
                     DispatchQueue.main.async {
                         /*
+                         (let authDataResult)
                         self?.errorLabel.textColor = .systemGreen
                         // by nature it is a optional so it HAS/ NO OTHER CHOICE but for it to be unwrapped but because we are in case success we should always get back a email
                         self?.errorLabel.text = "Welcome back with email: \(authDataResult.user.email ?? "not avaiable")"
                         */
-                        
+                        self?.navigateToMainView()
                     }
                 }
             }
@@ -77,16 +78,20 @@ class LoginViewController: UIViewController {
                         self.errorLabel.text = "\(error.localizedDescription)"
                         self.errorLabel.textColor = .systemRed
                     }
-                case .success(let authDataResult):
+                case .success:
                     DispatchQueue.main.async {
                         /*
+                         (let authDataResult)
                         - instead of changing the label you want it to segue to the screen
                         self.errorLabel.text =  "Thanks for signing up. Email now assoicated with the account is \(authType.user.email ?? "")"
                         self.errorLabel.textColor = .systemGreen
+                         
+                         username: 
+                        password: firebasewillmakememoney
                         */
                         
                         // TODO: navigate to the main view.
-                        
+                        self.navigateToMainView()
                     }
                 }
             }
