@@ -9,8 +9,11 @@ target 'Firebase-Demo' do
 	pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   
-  # pod 'Firebase/Firestore'
-  # pod 'Firebase/storage'
+  #Database pods
+  pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
+  pod 'Firebase/Storage'
+  pod 'Kingfisher'
 
   target 'Firebase-DemoTests' do
     inherit! :search_paths

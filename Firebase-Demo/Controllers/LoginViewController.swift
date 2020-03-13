@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import FirebaseAuth
+
+
+//MARK: March 10 Notes  https://console.firebase.google.com/u/3/project/fir-demo-2b103/authentication/users
+// go to database and delete all the items and also go to Authentication and delete all the users
 
 enum AccountState {
     // emun to capture the state of the users status within the app. 
@@ -28,6 +33,9 @@ class LoginViewController: UIViewController {
     
     // not a singleton because we might do delegates on it later
     private var authSession = AuthentificationSession()
+    
+    //
+    private var databaseService = DatabaseService()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -78,23 +86,35 @@ class LoginViewController: UIViewController {
                         self.errorLabel.text = "\(error.localizedDescription)"
                         self.errorLabel.textColor = .systemRed
                     }
-                case .success:
-                    DispatchQueue.main.async {
-                        /*
-                         (let authDataResult)
-                        - instead of changing the label you want it to segue to the screen
-                        self.errorLabel.text =  "Thanks for signing up. Email now assoicated with the account is \(authType.user.email ?? "")"
-                        self.errorLabel.textColor = .systemGreen
-                         
-                         username: 
-                        password: firebasewillmakememoney
-                        */
-                        
-                        // TODO: navigate to the main view.
-                        self.navigateToMainView()
-                    }
+              case .success(let authDataResult):
+                                    //MARK: March 10th create a database user only from a new authenticated account
+                                    // make sure this is in the create new user block because you only want to greate a new account for new user and not everyone
+                self.createDatabaseUser(authDataResult: authDataResult)
+                //self.createDat
+                                    break
+                                  //  DispatchQueue.main.async {
+                //                        self?.navigateToMainView()
+                                        
+                                   // }
+                    
                 }
             }
+        }
+    }
+    
+    private func createDatabaseUser(authDataResult: AuthDataResult) {
+        databaseService.createDatabaseUser(authDataResult: authDataResult) { [weak self] (result) in
+            switch result {
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self?.showAlert(title: "Account error", message: error.localizedDescription)
+                }
+            case .success:
+                DispatchQueue.main.async {
+                    self?.navigateToMainView()
+                }
+            }
+            
         }
     }
   

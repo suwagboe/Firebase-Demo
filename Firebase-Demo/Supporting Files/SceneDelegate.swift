@@ -28,7 +28,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     window?.windowScene = windowScene
     
    // window?.rootViewController = loginViewController we make the function to change the controller
-    
+    // to signout is below
+    //try? Auth.auth().signOut()
     if let _ = Auth.auth().currentUser {
         // because someone is logged in it will be at the main screen..
     // if the value is not optional then a user is currently logged in
